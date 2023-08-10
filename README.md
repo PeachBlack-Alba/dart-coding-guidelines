@@ -179,42 +179,44 @@ Future<Either<Failure, UserSettings>> call(NoParams params) async {
 
 // Do
 
-// in a use-case
+`// in a use-case
 final bool enableGroupChats = getIt<RemoteConfigService>().shouldShowGroupChats; // service used via getIt
 final List<InvitedUser> invitedUsers = _teamRepository.getInvitedUsers(); // repository injected via constructor
 
 // in a bloc
 final bool enableGroupChats = getIt<RemoteConfigService>().shouldShowGroupChats; // service used via getIt
-final List<InvitedUser> invitedUsers = getIt<GetInvitedUsersUseCase>().call(); // repository used via getIt
+final List<InvitedUser> invitedUsers = getIt<GetInvitedUsersUseCase>().call(); // repository used via getIt`
 
 // Don't 
 
-// in a repository
+`// in a repository
 final bool enableGroupChats = getIt<RemoteConfigService>().shouldShowGroupChats;  // service used via getIt BUT in a repository 
 
 // in a use-case
 final List<InvitedUser> invitedUsers = getIt<TeamRepository>().getInvitedUsers();  // repository used via getIt
 
 // in a bloc
-final List<InvitedUser> invitedUsers = getInvitedUsersUseCase.call(); // usecase injected via constructor [We don't want `getIt` to start appearing in the widget layer]
+final List<InvitedUser> invitedUsers = getInvitedUsersUseCase.call(); 
 
+// usecase injected via constructor [We don't want `getIt` to start appearing in the widget layer]
+`
 
 
 # Use widget-classes, not widget-methods:
 
 // Do
  
-class _ProductsList extends StatelessWidget {
+`class _ProductsList extends StatelessWidget {
    @override
    Widget build(BuildContext context) {
 	  return ListView.builder(...);
    }
-}
+}`
 // Don’t
  
-_getProductsList() {
+`_getProductsList() {
    return ListView.builder(...);
-}
+}`
  
 // Read more here: https://stackoverflow.com/a/53234826/5066615
 
@@ -223,7 +225,7 @@ _getProductsList() {
 For raw future functions, use aync/await. Any function you want to run asynchronously must have the async modifier added to it. When you are adding the await modifier, the code is explicitly saying: “don’t go further until my future is completed”.
 For example:
 
-``` function () async {
+` function () async {
 var data = await loadData();
 // Do something…
-}```
+}`
