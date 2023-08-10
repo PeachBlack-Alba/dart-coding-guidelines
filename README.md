@@ -44,8 +44,21 @@ if (overflowChars != other.overflowChars)
 
 # “dart:” imports must come before other imports.
 
+```
+import ‘dart:async’;
+import ‘dart:html’;
+import ‘package:model/UserModel.dart’;
+import ‘package:network/HttpRequest.dart’
+```
 
 # “export:” should be after other imports.
+
+```
+import ‘package:dltwallet/src/appflow/app_coordinator.dart’;
+import ‘package:dltwallet/src/appflow/main_flow/main_tab.dart’;
+import ‘package:dltwallet/src/appflow/splash_screen.dart’;
+export ‘package:async/src/error.dart’;
+```
 
 # Use the ternary operator for single-line if-else statements
 
